@@ -5,11 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music for Life</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
+    <?php
+        include './bd.php'; // Kết nối CSDL
+
+        // Đếm số lượng thể loại
+        $sql_theloai = "SELECT COUNT(ma_tloai) AS count_theloai FROM theloai";
+        $result_theloai = $conn->query($sql_theloai);
+        $count_theloai = $result_theloai->fetch_assoc()['count_theloai'];
+
+        // Đếm số lượng tác giả
+        $sql_tacgia = "SELECT COUNT(ma_tgia) AS count_tacgia FROM tacgia";
+        $result_tacgia = $conn->query($sql_tacgia);
+        $count_tacgia = $result_tacgia->fetch_assoc()['count_tacgia'];
+
+        // Đếm số lượng bài viết
+        $sql_baiviet = "SELECT COUNT(ma_bviet) AS count_baiviet FROM baiviet";
+        $result_baiviet = $conn->query($sql_baiviet);
+        $count_baiviet = $result_baiviet->fetch_assoc()['count_baiviet'];
+
+        // // Đếm số lượng người dùng (Giả sử bạn có bảng 'users')
+        // $sql_users = "SELECT COUNT(id) AS count_users FROM users";
+        // $result_users = $conn->query($sql_users);
+        // $count_users = $result_users->fetch_assoc()['count_users'];
+
+    ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
@@ -67,7 +91,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            10
+                        <?php echo $total_categories; ?>
                         </h5>
                     </div>
                 </div>
@@ -81,7 +105,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            20
+                        <?php echo $total_authors; ?>
                         </h5>
                     </div>
                 </div>
@@ -95,7 +119,7 @@
                         </h5>
 
                         <h5 class="h1 text-center">
-                            110
+                        <?php echo $total_articles; ?>
                         </h5>
                     </div>
                 </div>
