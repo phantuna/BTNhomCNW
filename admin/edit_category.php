@@ -10,6 +10,44 @@
     <link rel="stylesheet" href="css/style_login.css">
 </head>
 <body>
+<?php
+    include './bd.php'; // Kết nối CSDL
+
+    // Kiểm tra nếu có ID thể loại được gửi qua URL
+    if (isset($_GET['ma_tloai'])) {
+        $categoryId = intval($_GET['ma_tloai']);
+
+        // Lấy thông tin thể loại từ cơ sở dữ liệu
+        $stmt = $pdo->prepare("SELECT * FROM theloai WHERE ma_tloai = :ma_tloai");
+        $stmt->bindParam(':ma_tloai', $categoryId);
+        $stmt->execute();
+        $category = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Kiểm tra nếu thể loại tồn tại
+       
+    }
+
+    // Xử lý lưu thông tin thể loại mới
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $categoryName = trim($_POST['txtCatName']);
+        
+        if (!empty($categoryName)) {
+            // Cập nhật thể loại trong cơ sở dữ liệu
+            $stmt = $pdo->prepare("UPDATE theloai SET ten_tloai = :ten_tloai WHERE ma_tloai = :ma_tloai");
+            $stmt->bindParam(':ten_tloai', $categoryName);
+            $stmt->bindParam(':ma_tloai', $categoryId);
+            
+            if ($stmt->execute()) {
+                header("Location: category.php"); // Chuyển hướng về danh sách thể loại
+                exit();
+            } else {
+                echo "Có lỗi xảy ra, vui lòng thử lại.";
+            }
+        } else {
+            echo "Tên thể loại không được để trống.";
+        }
+    }
+?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
             <div class="container-fluid">
