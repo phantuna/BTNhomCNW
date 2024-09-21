@@ -1,5 +1,5 @@
 <?php
-include("./bd.php"); // Kết nối CSDL
+include("./db.php"); // Kết nối CSDL
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

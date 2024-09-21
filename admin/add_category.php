@@ -11,8 +11,14 @@
 </head>
 <body>
 <?php
-       include './bd.php'; // Kết nối CSDL
-       
+       include 'db.php'; // Kết nối CSDL
+       try {
+        // Tạo kết nối
+        $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
+        // Thiết lập chế độ báo lỗi
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        die("Kết nối thất bại: " . $e->getMessage());}
        if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Lấy giá trị từ form
         $categoryName = trim($_POST['txtCatName']);

@@ -13,7 +13,7 @@
 </head>
 <body>
     <?php
-        include './bd.php'; // Kết nối CSDL
+        include 'db.php'; // Kết nối CSDL
 
         
     ?>
