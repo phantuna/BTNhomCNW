@@ -49,11 +49,13 @@
                 <table class="table">
                 <thead>
                         <tr>
+                        <a href="add_article.php" class="btn btn-success">Thêm mới</a>
                             <th scope="col">#</th>
                             <th scope="col">Tiêu đề</th>
                             <th scope="col">Tên thể loại</th>
                             <th scope="col">Tác giả</th>
-                            
+                            <th>Sửa</th>
+                            <th>Xóa</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -73,7 +75,9 @@
                                 JOIN 
                                     tacgia tg ON bv.ma_tgia = tg.ma_tgia
                                 JOIN 
-                                    theloai tl ON bv.ma_tloai = tl.ma_tloai";
+                                    theloai tl ON bv.ma_tloai = tl.ma_tloai
+                                ORDER BY bv.ma_bviet ASC;
+                                    ";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0) {
@@ -85,6 +89,9 @@
                                 echo "<td>" . $row['tieude'] . "</td>";
                                 echo "<td>" . $row['ten_the_loai'] . "</td>";
                                 echo "<td>" . $row['ten_tac_gia'] . "</td>";
+                                echo "<td><a href='edit_article.php?id=" . $row['ma_bviet']  . "'><i class='fa-solid fa-pen-to-square'></i></a></td>";
+                                echo "<td><a href='delete_article.php?id=" . $row['ma_bviet'] . "' onclick='return confirm(\"Bạn có chắc chắn muốn xóa bài viết này?\");'><i class='fa-solid fa-trash'></i></a></td>
+";
                                 echo "</tr>";
                             }
                         } else {

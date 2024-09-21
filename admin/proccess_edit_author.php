@@ -1,36 +1,39 @@
 <?php
 include 'db.php'; // Kết nối cơ sở dữ liệu
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $catId = isset($_POST['txtCatId']) ? $_POST['txtCatId'] : null;
-    $catName = isset($_POST['txtCatName']) ? $_POST['txtCatName'] : null;
+if (isset($_POST['txtCatId']) && isset($_POST['txtCatName'])) {
+    $catId = $_POST['txtCatId']; // Lấy ID thể loại từ biểu mẫu
+    $catName = trim($_POST['txtCatName']);
 
-    // Kiểm tra xem ID và tên tác giả có hợp lệ không
-    if ($catId && $catName) {
-        // Truy vấn cập nhật tên tác giả
-        $sql = "UPDATE tacgia SET ten_tgia = ? WHERE ma_tgia = ?";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("si", $catName, $catId);
-
-        if ($stmt->execute()) {
-            // Nếu cập nhật thành công, chuyển hướng về danh sách tác giả
-            header("Location: author.php?success=Thành công! Đã cập nhật tên tác giả.");
-            exit();
-        } else {
-            // Nếu có lỗi xảy ra
-            header("Location: edit_author.php?id=$catId&error=Lỗi khi cập nhật.");
-            exit();
-        }
-
-       
-    } else {
-        // Nếu ID hoặc tên không hợp lệ
-        header("Location: edit_author.php?id=$catId&error=ID hoặc tên tác giả không hợp lệ.");
-        exit();
+    // Xác thực dữ liệu
+    if (empty($catName)) {
+        header("Location: edit_author.php?id=$catId&error=Tên tác giả không được để trống");
+        exit;
     }
+
+    // Truy vấn cập nhật thể loại
+    $sql = "UPDATE tacgia SET ten_tgia = ? WHERE ma_tgia = ?";
+    $stmt = $conn->prepare($sql);
+
+    if ($stmt === false) {
+        header("Location: edit_author.php?id=$catId&error=Lỗi chuẩn bị câu truy vấn: " . $conn->error);
+        exit;
+    }
+
+    $stmt->bind_param("si", $catName, $catId);
+
+    if ($stmt->execute()) {
+        // Chuyển hướng người dùng về trang danh sách thể loại
+        header("Location: author.php?msg=Cập nhật thành công!");
+        exit; // Ngăn chặn thực thi mã tiếp theo
+    } else {
+        header("Location: edit_author.php?id=$catId&error=Có lỗi xảy ra khi cập nhật: " . $stmt->error);
+        exit;
+    }
+
+    // Đóng câu lệnh đã chuẩn bị
 } else {
-    // Nếu không phải POST request
-    header("Location: author.php?error=Không được phép truy cập trực tiếp.");
-    exit();
+    header("Location: author.php?error=ID thể loại không hợp lệ.");
+    exit;
 }
 ?>

@@ -71,7 +71,7 @@
                                 echo "<th scope='row'>" . $row['ma_tgia'] . "</th>";
                                 echo "<td>" . $row['ten_tgia'] . "</td>";
                                 echo "<td><a href='edit_author.php?id=" . $row['ma_tgia'] . "'><i class='fa-solid fa-pen-to-square'></i></a></td>";
-                                echo "<td><a href='del_author.php?id=" . $row['ma_tgia'] . "'><i class='fa-solid fa-trash'></i></a></td>";
+                                echo "<td><a href='delete_author.php?id=" . $row['ma_tgia'] . "'><i class='fa-solid fa-trash'></i></a></td>";
                                 echo "</tr>";
                             }
                         } else {
