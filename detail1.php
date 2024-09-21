@@ -47,13 +47,13 @@
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="index.php" class="text-decoration-none">Cây và gió</a>
+                            <a href="index.php" class="text-decoration-none">Cuộc sông mến thương</a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cây và gió</p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cuộc sông mến thương</p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc quê hương</p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Có một câu nói như thế này "Âm nhạc là một cái gì khác lạ mà hầu như tôi muốn nói nó là một phép thần diệu.Vì nó đứng giữa tư tưởng và hiện tượng, tinh thần và vật chất, mọi thứ trung gian mơ hồ thế đó mà không là thế đó giữa các sự vật mà âm nhạc hòa giải.</p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Có một câu nói như thế này "Âm nhạc là một cái gì khác lạ mà hầu như tôi muốn nói nó là một phép thần diệu.Vì nó đứng giữa tư tưởng và hiện tượng, tinh thần và vật chất, mọi thứ trung gian mơ hồ thế đó mà không là thế đó giữa các sự vật mà âm nhạc hòa giải.</p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Sưu tầm</p>
 
                     </div>          
         </div>

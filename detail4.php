@@ -47,13 +47,13 @@
                     </div>
                     <div class="col-sm-8">
                         <h5 class="card-title mb-2">
-                            <a href="index.php" class="text-decoration-none">Cây và gió</a>
+                            <a href="index.php" class="text-decoration-none">Nơi tình yêu bắt đầu</a>
                         </h5>
-                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Cây và gió</p>
-                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trữ tình</p>
-                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Em và anh, hai đứa quen nhau thật tình cờ. Lời hát của anh từ bài hát “Cây và gió” đã làm tâm hồn em xao động. Nhưng sự thật phũ phàng rằng em chưa bao giờ nói cho anh biết những suy nghĩ tận sâu trong tim mình. Bởi vì em nhút nhát, em không dám đối mặt với thực tế khắc nghiệt, hay thực ra em không dám đối diện với chính mình.</p>
-                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nguyễn Văn Giả</p>
+                        <p class="card-text"><span class=" fw-bold">Bài hát: </span>Nơi tình yêu bắt đầu</p>
+                        <p class="card-text"><span class=" fw-bold">Thể loại: </span>Nhạc trẻ</p>
+                        <p class="card-text"><span class=" fw-bold">Tóm tắt: </span>Nhiều người sẽ nghĩ làm gì có yêu nhất và làm gì có yêu mãi. Ừ! Chẳng có gì là mãi mãi cả, vì chúng ta không trường tồn vĩnh cửu.</p>
+                        <p class="card-text"><span class=" fw-bold">Nội dung: </span>Nhiều người sẽ nghĩ làm gì có yêu nhất và làm gì có yêu mãi. Ừ! Chẳng có gì là mãi mãi cả, vì chúng ta không trường tồn vĩnh cửu.</p>
+                        <p class="card-text"><span class=" fw-bold">Tác giả: </span>Nhacvietplus</p>
 
                     </div>          
         </div>
