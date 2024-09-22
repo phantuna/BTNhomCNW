@@ -11,7 +11,7 @@
 <body>
 <?php
 include './admin/db.php';
-// Lấy id từ URL
+
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 // Truy vấn dữ liệu bài hát
