@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2024 at 09:51 AM
+-- Generation Time: Sep 22, 2024 at 09:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -18,8 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: ` btth01_cse485`
+-- Database: `btth01_cse485`
 --
+CREATE DATABASE IF NOT EXISTS `btth01_cse485` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `btth01_cse485`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `baiviet`
 --
 
+DROP TABLE IF EXISTS `baiviet`;
 CREATE TABLE `baiviet` (
   `ma_bviet` int(10) UNSIGNED NOT NULL,
   `tieude` varchar(200) NOT NULL,
@@ -44,7 +47,7 @@ CREATE TABLE `baiviet` (
 --
 
 INSERT INTO `baiviet` (`ma_bviet`, `tieude`, `ten_bhat`, `ma_tloai`, `tomtat`, `noidung`, `ma_tgia`, `ngayviet`, `hinhanh`) VALUES
-(1, 'Lòng mẹ', 'Lòng mẹ', 2, 'Và mẹ ơi đừng khóc nhé! Cả đời này mẹ đã khóc nhiều lắm rồi, hãy cười lên vì con đã trưởng thành! Con sẽ lại về dậy sớm nấu cơm cho mẹ, nấu nước cho mẹ tắm như ngày xưa. “Dù cho vai nắng nhưng lòng thương chẳng nhạt màu, vẫn mơ quay về vui vầy dưới bóng mẹ yêu”', NULL, 1, '2012-07-23 00:00:00', NULL),
+(1, 'Lòng mẹ bao la', 'Lòng mẹ', 2, 'Và mẹ ơi đừng khóc nhé! Cả đời này mẹ đã khóc nhiều lắm rồi, hãy cười lên vì con đã trưởng thành! Con sẽ lại về dậy sớm nấu cơm cho mẹ, nấu nước cho mẹ tắm như ngày xưa. “Dù cho vai nắng nhưng lòng thương chẳng nhạt màu, vẫn mơ quay về vui vầy dưới bóng mẹ yêu”', NULL, 1, '2012-07-23 00:00:00', NULL),
 (2, 'Cảm ơn em đã rời xa anh', 'Vết mưa', 2, 'Cảm ơn em đã cho anh những tháng ngày hạnh phúc, cho anh biết yêu và được yêu. Em cho anh được nếm trải hương vị ngọt ngào của tình yêu nhưng cũng đầy đau khổ và nước mắt. Những tháng ngày đó có lẽ suốt cuộc đời anh không bao giờ quên', NULL, 3, '2012-02-12 00:00:00', NULL),
 (3, 'Cuộc đời có mấy ngày mai?', 'Phôi pha', 2, 'Đêm nay, trời quang mây tạnh, trong người nghe hoang vắng và tôi ngồi đây “Ôm lòng đêm, Nhìn vầng trăng mới về” mà ngậm ngùi “Nhớ chân giang hồ. Ôi phù du, từng tuổi xuân đã già”', NULL, 4, '2014-03-13 00:00:00', NULL),
 (4, 'Quê tôi!', 'Quê hương', 5, 'Quê hương là gì mà chở đầy kí ức nhỏ xinh. Có đám trẻ nô đùa bên nhau dưới gốc ổi nhà bà Năm giữa trưa nắng gắt chỉ để chờ bà đi vắng là hái trộm. Có hai anh em tôi bì bõm lội sình bắt cua đem về nhà cho mẹ nấu canh, nấu cháo… Có ba chị em tôi lục đục tự nấu ăn khi mẹ vắng nhà. Có anh tôi luôn dắt tôi đi cùng đường ngõ xóm chỉ để em được vui. Có cả những trận cãi nhau nảy lửa của ba anh em nữa…', NULL, 5, '2014-02-20 00:00:00', NULL),
@@ -64,6 +67,7 @@ INSERT INTO `baiviet` (`ma_bviet`, `tieude`, `ten_bhat`, `ma_tloai`, `tomtat`, `
 -- Table structure for table `tacgia`
 --
 
+DROP TABLE IF EXISTS `tacgia`;
 CREATE TABLE `tacgia` (
   `ma_tgia` int(10) UNSIGNED NOT NULL,
   `ten_tgia` varchar(100) NOT NULL,
@@ -90,6 +94,7 @@ INSERT INTO `tacgia` (`ma_tgia`, `ten_tgia`, `hinh_tgia`) VALUES
 -- Table structure for table `theloai`
 --
 
+DROP TABLE IF EXISTS `theloai`;
 CREATE TABLE `theloai` (
   `ma_tloai` int(10) UNSIGNED NOT NULL,
   `ten_tloai` varchar(50) NOT NULL
@@ -107,7 +112,56 @@ INSERT INTO `theloai` (`ma_tloai`, `ten_tloai`) VALUES
 (5, 'Nhạc quê hương'),
 (6, 'POP'),
 (7, 'Rock'),
-(8, 'R&B');
+(8, 'R&B'),
+(16, 'edmus');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'user1', '$2y$10$qNp3XdTKfCQinkIDUkpeKu6891iDUHZskbyasBpkat5HrDS6gr8Aq'),
+(2, 'user2', '$2y$10$fn.hscz9X95/shYwIRVeYu38/wxmF8FKXo2WoCCeApb04HmwhLq9.'),
+(3, 'user3', '$2y$10$pGEYEhZWuGupHFXJgPDZeOFMtvZNcq9B96NNehDwHC9pC1HjkdCSC');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `vw_music`
+-- (See below for the actual view)
+--
+DROP VIEW IF EXISTS `vw_music`;
+CREATE TABLE `vw_music` (
+`ma_bviet` int(10) unsigned
+,`tieude` varchar(200)
+,`tomtat` text
+,`ngayviet` datetime
+,`ten_tac_gia` varchar(100)
+,`ten_the_loai` varchar(50)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `vw_music`
+--
+DROP TABLE IF EXISTS `vw_music`;
+
+DROP VIEW IF EXISTS `vw_music`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_music`  AS SELECT `bv`.`ma_bviet` AS `ma_bviet`, `bv`.`tieude` AS `tieude`, `bv`.`tomtat` AS `tomtat`, `bv`.`ngayviet` AS `ngayviet`, `tg`.`ten_tgia` AS `ten_tac_gia`, `tl`.`ten_tloai` AS `ten_the_loai` FROM ((`baiviet` `bv` join `tacgia` `tg` on(`bv`.`ma_tgia` = `tg`.`ma_tgia`)) join `theloai` `tl` on(`bv`.`ma_tloai` = `tl`.`ma_tloai`)) ;
 
 --
 -- Indexes for dumped tables
@@ -134,6 +188,13 @@ ALTER TABLE `theloai`
   ADD PRIMARY KEY (`ma_tloai`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -141,19 +202,25 @@ ALTER TABLE `theloai`
 -- AUTO_INCREMENT for table `baiviet`
 --
 ALTER TABLE `baiviet`
-  MODIFY `ma_bviet` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ma_bviet` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tacgia`
 --
 ALTER TABLE `tacgia`
-  MODIFY `ma_tgia` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ma_tgia` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `theloai`
 --
 ALTER TABLE `theloai`
-  MODIFY `ma_tloai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ma_tloai` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
