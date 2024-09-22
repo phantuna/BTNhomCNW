@@ -78,3 +78,8 @@ SELECT * FROM vw_Music;
    -- k Thêm mới cột SLBaiViet vào trong bảng theloai. Tạo 1 trigger có tên tg_CapNhatTheLoai để khi thêm/sửa/xóa bài viết thì số lượng bài viết trong bảng theloai được cập nhật theo
 
    --l. Bổ sung thêm bảng Users để lưu thông tin Tài khoản đăng nhập và sử dụng cho chức năng Đăng nhập/Quản trị trang web. (5 đ)
+        CREATE TABLE `users` (
+            `id` int(11) NOT NULL,
+            `username` varchar(255) NOT NULL,
+            `password` varchar(255) NOT NULL
+            ) 
