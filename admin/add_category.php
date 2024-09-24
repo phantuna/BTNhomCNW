@@ -12,35 +12,7 @@
 <body>
 <?php
        include 'db.php'; // Kết nối CSDL
-       try {
-        // Tạo kết nối
-        $pdo = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8", $username, $password);
-        // Thiết lập chế độ báo lỗi
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Kết nối thất bại: " . $e->getMessage());}
-       if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Lấy giá trị từ form
-        $categoryName = trim($_POST['txtCatName']);
-        
-        // Kiểm tra nếu tên thể loại không rỗng
-        if (!empty($categoryName)) {
-            // Chuẩn bị & ràng buộc
-            $stmt = $pdo->prepare("INSERT INTO theloai (ten_tloai) VALUES (:ten_tloai)");
-            $stmt->bindParam(':ten_tloai', $categoryName);
-            
-            // Thực hiện câu lệnh
-            if($stmt->execute()) {
-                // Chuyển hướng về trang danh sách thể loại
-                header("Location: category.php");
-                exit();
-            } else {
-                echo "Có lỗi xảy ra, vui lòng thử lại.";
-            }
-        } else {
-            echo "Tên thể loại không được để trống.";
-        }
-    } 
+       
     ?>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary shadow p-3 bg-white rounded">
@@ -79,7 +51,7 @@
         <div class="row">
             <div class="col-sm">
                 <h3 class="text-center text-uppercase fw-bold">Thêm mới thể loại</h3>
-                <form action="add_category.php" method="post">
+                <form action="process_add_category.php" method="post">
                     <div class="input-group mt-3 mb-3">
                         <span class="input-group-text" id="lblCatName">Tên thể loại</span>
                         <input type="text" class="form-control" name="txtCatName" >
